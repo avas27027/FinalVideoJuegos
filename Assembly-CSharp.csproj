@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{18A227F1-5C0F-ACA8-E1B1-82377BC58276}</ProjectGuid>
+    <ProjectGuid>{8D33EC7B-E826-B2B2-0D1D-05C2760DFC42}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -53,13 +53,16 @@
     <UnityVersion>2020.3.30f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\State Pattern\State.cs" />
     <Compile Include="Assets\Scripts\State Pattern\StateMachine.cs" />
     <Compile Include="Assets\Scripts\Hero\IdleState.cs" />
     <Compile Include="Assets\Scripts\Hero\HeroController.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\__\license.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
