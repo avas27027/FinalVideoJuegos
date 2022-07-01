@@ -9,7 +9,7 @@ public abstract class State<T>
         this.mSM = mSM;
     }
 
-    public void OnEnter() { }
+    public virtual void OnEnter() { }
     public virtual void OnExit() { }
     public virtual void OnHandleInput() { }
     public virtual void OnLogicUpdate() { }

@@ -1,0 +1,34 @@
+{
+    "name": "PlayerActions",
+    "maps": [
+        {
+            "name": "Entradas",
+            "id": "76a75636-424c-4d1f-b2a6-29748f07ac71",
+            "actions": [
+                {
+                    "name": "SpacePressed",
+                    "type": "Button",
+                    "id": "08c18125-dc6e-4e43-9393-85e19a0bc612",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "dcfb086f-6d0c-465c-807c-fdb7809743a0",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SpacePressed",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
