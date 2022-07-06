@@ -62,6 +62,8 @@
     <Compile Include="Assets\Scripts\Hero\IdleState.cs" />
     <Compile Include="Assets\Scripts\Hero\SqueletonController.cs" />
     <Compile Include="Assets\InputActions\PlayerActions.cs" />
+    <Compile Include="Assets\Scripts\Hero\AttackState.cs" />
+    <Compile Include="Assets\Scripts\proyectilController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\__\license.txt" />

@@ -11,25 +11,25 @@ public class IdleState : State<SqueletonController>
     {
     }
 
-
-
     public override void OnEnter()
     {
         base.OnEnter();
         Debug.Log("Entrando a IdleState");
+
         mController.mPlayerActions.Entradas.SpacePressed.performed += OnSpacePressed;
-        
+        mController.mPlayerActions.Enable();
     }
 
     private void OnSpacePressed(InputAction.CallbackContext obj)
     {
-        throw new NotImplementedException();
+        SpacePressed = true;
     }
+
 
     public override void OnExit()
     {
         base.OnExit();
-        SpacePressed = true;
+        SpacePressed = false;
     }
 
     public override void OnHandleInput()
