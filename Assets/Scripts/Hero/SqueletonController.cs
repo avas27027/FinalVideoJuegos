@@ -9,6 +9,8 @@ public class SqueletonController : MonoBehaviour
     public Transform mProyectilPoint;
     public float proyectilForce;
     public float tiempoDisparo;
+    public bool Arquero;
+    public float speed;
 
     //public float rotationSpeed;
     //public float visionDistance;
@@ -20,6 +22,7 @@ public class SqueletonController : MonoBehaviour
     public bool trigerCol = false;
     public Transform objColTra;
     private bool derecha = true;
+    private bool onCollide = false;
     //public float rotation = 0;
     //public Vector2 hitVect;
     public PlayerActions mPlayerActions;
@@ -39,7 +42,7 @@ public class SqueletonController : MonoBehaviour
         IdleState = new IdleState(this, mSM);
         GuardState = new GuardState(this, mSM);
         AttackState = new AttackState(this, mSM);
-        mSM.Start(IdleState);
+        mSM.Start(GuardState);
 
     }
 
@@ -62,13 +65,23 @@ public class SqueletonController : MonoBehaviour
         //obj.GetComponent<proyectilController>().noCollide = gameObject.name;
         Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
         rb.AddForce(objColTra.transform.position * proyectilForce, ForceMode2D.Impulse);
-        if(Vector2.Distance(transform.position, objColTra.position) > 0 && !derecha)
+        if(transform.position.x - objColTra.position.x > 0 && derecha)
         {
             transform.Rotate(Vector2.up, 180f);
             derecha = false;
         }
-        
+        else if (transform.position.x - objColTra.position.x < 0 && !derecha)
+        {
+            transform.Rotate(Vector2.up, 180f);
+            derecha = true;
+        }
+
         //obj.transform.parent = null;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        onCollide = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -89,14 +102,14 @@ public class SqueletonController : MonoBehaviour
     {
         this.trigerCol = trigerCol;
     }
-    /*
-    public Transform GetObjColTra()
+    
+    public bool GetOnCollide()
     {
-        return objColTra;
+        return onCollide;
     }
 
-    public string GetObjColPrev()
+    public void SetOnCollide(bool onCollide)
     {
-        return objColPrev;
-    }*/
+        this.onCollide = onCollide;
+    }
 }

@@ -25,22 +25,26 @@ public class AttackState : State<SqueletonController>
     public override void OnLogicUpdate()
     {
         base.OnLogicUpdate();
+        mController.SetOnCollide(false);
         
         mTimer += Time.deltaTime;
-        if(mTimer > mController.tiempoDisparo)
+        v = Vector2.Distance(mController.transform.position, mController.objColTra.position);
+        if (mTimer > mController.tiempoDisparo && mController.Arquero)
         {
-            v = Vector2.Distance(mController.transform.position, mController.objColTra.position);   
             mController.Disparar();
             mTimer = 0f;
             
+            Debug.Log(v);
+        }
+        if(!mController.Arquero && !mController.GetOnCollide())
+        {
+            Acercarce();
             Debug.Log(v);
         }
         
         if(v > mController.hitBox)
         {
             Debug.Log("Salida : "+v);
-            //Debug.Log("Actual "+mController.objColAct);
-            //Debug.Log("Previo " + mController.objColPrev);
             mSM.ChangeState(mController.GuardState);
         }
         
@@ -57,5 +61,11 @@ public class AttackState : State<SqueletonController>
     public override void OnPhisicsUpdate()
     {
         base.OnPhisicsUpdate();
+    }
+
+    public void Acercarce()
+    {
+        mController.GetComponent<Transform>().position = Vector2.MoveTowards(mController.transform.position, mController.objColTra.position, mController.speed * Time.deltaTime);
+
     }
 }
